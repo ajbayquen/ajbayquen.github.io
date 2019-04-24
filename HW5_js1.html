@@ -112,6 +112,38 @@ function calc(){
 
 <div id="target"></div>
 
+<script type="text/javascript">
+
+document.write('<p1>Generate table (5x4 matrix) of the first 20 multiples of integer entered</p1>')
+       
+        function gentable(number){
+            nmult = [];
+            var ntable = '<table>';
+            for (i = 1; i <= 20; i++)
+  			    {nmult.push(number * i)};
+            for (i = 0; i < 20; i++){
+                if (i % 4 == 0) { 
+                   ntable = ntable +'<tr>'
+                };
+                ntable = ntable + '<td>' + nmult[i] + '</td>';
+                if (i % 4 == 3){
+                    ntable = ntable + '</tr>'};};
+            ntable = ntable + '</table>';
+            return ntable
+        };
+        function generate(){
+            var nput = document.getElementById("target");
+            nput.innerHTML = gentable(document.getElementById('number').value);
+        }
+ </script>
+ <form>
+    <input id="number" type="number" size="4">
+    <input type="button" value="Generate Table" onClick="generate();">
+ </form>
+    <br>
+	
+<div id="target"></div>
+
 <script type="text/javascript" src="other_script.js"></script>
 
 <script type="text/javascript"> document.write(myScript());</script>
